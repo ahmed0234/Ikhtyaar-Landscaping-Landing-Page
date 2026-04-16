@@ -1,0 +1,328 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: 8rem 1.5rem;
+  overflow: hidden;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.05) 0%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+  z-index: 10;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+/* Left Column */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.headline {
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 3.5rem;
+  }
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: #475569;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  perspective: 1200px;
+}
+
+/* Individual 3D Card */
+.cardOuter {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.cardInner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 1.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.cardOuter:hover .cardInner {
+  box-shadow:
+    0 20px 40px -10px rgba(37, 99, 235, 0.15),
+    inset 0 0 0 2px rgba(37, 99, 235, 0.5);
+  background: #ffffff;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.1) 0%,
+    rgba(37, 99, 235, 0.05) 100%
+  );
+  color: #2563EB;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transform: translateZ(30px); /* Pops out in 3D */
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+}
+
+.cardTextContainer {
+  transform: translateZ(20px);
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+/* Interactive Portal 3D Wrapper */
+.rightColumn {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.graphPortal {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: linear-gradient(145deg, #f1f5f9 0%, #ffffff 100%);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow:
+    -20px 30px 60px -15px rgba(37, 99, 235, 0.15),
+    inset 0 0 40px rgba(37, 99, 235, 0.05),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.8),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.6s ease;
+}
+
+@media (min-width: 1024px) {
+  .graphPortal {
+    aspect-ratio: 4/4;
+  }
+}
+
+.graphPortal:hover {
+  box-shadow:
+    0 40px 80px -20px rgba(37, 99, 235, 0.25),
+    inset 0 0 60px rgba(37, 99, 235, 0.1),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.9);
+}
+
+/* Internal Graph Elements for the Stand-in */
+.graphBackdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  transform: translateZ(-50px); /* Sits deep inside */
+  overflow: hidden;
+}
+
+/* Simulated Growth Line */
+.growthLineContainer {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  width: 80%;
+  height: 50%;
+  transform: translateZ(50px);
+  filter: drop-shadow(0 15px 15px rgba(249, 115, 22, 0.3));
+}
+
+.growthLinePath {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-out forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.floatingPill {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateZ(90px); /* Floats highly outside */
+  white-space: nowrap;
+}
+
+.pillOrange {
+  top: 10%;
+  right: -2%;
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.pillBlue {
+  bottom: 20%;
+  left: -2%;
+  animation: floatSlow 5s ease-in-out infinite reverse;
+}
+
+.revenueText {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateZ(100px) translateY(0);
+  }
+  50% {
+    transform: translateZ(100px) translateY(-15px);
+  }
+}
+
+.summaryContainer {
+  margin-top: 4rem;
+  text-align: left;
+  border-left: 4px solid #2563EB;
+  padding-left: 1.5rem;
+}
+
+.summaryText {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-wrap: balance;
+}
+
+/* Simulated Growth Bars */
+.barGraphContainer {
+  position: absolute;
+  bottom: 12%;
+  left: 15%;
+  width: 70%;
+  height: 55%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  transform: translateZ(30px);
+  pointer-events: none;
+}
+
+.bar {
+  width: 14%;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(37, 99, 235, 0.8) 0%,
+    rgba(37, 99, 235, 0.1) 100%
+  );
+  animation: growBar 1.5s ease-out forwards;
+  transform-origin: bottom;
+  opacity: 0;
+  box-shadow: 0 -5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.bar1 {
+  animation-delay: 0.2s;
+  height: 35%;
+}
+.bar2 {
+  animation-delay: 0.4s;
+  height: 50%;
+}
+.bar3 {
+  animation-delay: 0.6s;
+  height: 75%;
+}
+.bar4 {
+  animation-delay: 0.8s;
+  height: 100%;
+  background: linear-gradient(180deg, #f97316 0%, rgba(249, 115, 22, 0.2) 100%);
+  box-shadow: 0 -5px 20px rgba(249, 115, 22, 0.4);
+}
+
+@keyframes growBar {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
