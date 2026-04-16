@@ -8,7 +8,7 @@ import styles from "./ProblemSection.module.css";
 const problems = [
   {
     icon: SearchX,
-    title: "They're not visible when buyers are actively searching",
+    title: "They're not visible when clients are actively searching",
   },
   {
     icon: Clock,
@@ -151,7 +151,7 @@ export default function ProblemSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Most insurance agencies struggle because:
+            Most landscaping companies struggle because:
           </motion.p>
 
           <div className={styles.cardsWrapper}>

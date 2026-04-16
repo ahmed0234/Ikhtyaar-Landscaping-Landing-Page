@@ -285,7 +285,7 @@ export default function HeroSection() {
                   </svg>
                 </div>
                 <div className={styles.adsTitleContainer}>
-                  <span className={styles.adsTitle}>Auto Insurance Ads</span>
+                  <span className={styles.adsTitle}>Landscaping Ads</span>
                   <div className={styles.adsStatus}>
                     <div className={styles.adsStatusDot}></div> Active Campaign
                   </div>
@@ -425,7 +425,7 @@ export default function HeroSection() {
 
             <motion.h1 variants={headlineVariants} className={styles.headline}>
               <SplitText>
-                If You’re Not Showing Up When People Search for Insurance,{" "}
+                People Are Searching For Landscaping In Your Area Every Day,{" "}
               </SplitText>
               <br className={styles.breakIfDesktop} />
               <motion.span
@@ -433,7 +433,7 @@ export default function HeroSection() {
                 variants={heroSplitChild}
               >
                 <span className={styles.highlightText}>
-                  <SplitText>You’re Losing Clients</SplitText>
+                  <SplitText>The Only Question is</SplitText>
                 </span>
                 <svg
                   className={styles.highlightUnderlineShape}
@@ -456,7 +456,7 @@ export default function HeroSection() {
                   />
                 </svg>
               </motion.span>
-              <SplitText> Every Single Day.</SplitText>
+              <SplitText> Do They See You?</SplitText>
             </motion.h1>
             {/* 
             <motion.p variants={subtextVariants} className={styles.subtext}>
@@ -820,7 +820,7 @@ export default function HeroSection() {
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                       </svg>
-                      <span>Custom action plan for your agency</span>
+                      <span>How landscaping companies are getting inbound jobs from Google daily</span>
                     </div>
                     <div className={styles.benefitItem}>
                       <svg
@@ -854,7 +854,7 @@ export default function HeroSection() {
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                       </svg>
-                      <span>Strategy to capture high-intent buyers</span>
+                      <span>Why most ads don’t work (and where money gets wasted)</span>
                     </div>
                     <div className={styles.benefitItem}>
                       <svg
@@ -891,7 +891,7 @@ export default function HeroSection() {
                   </div>
                   <div className={styles.trustText}>
                     <div className={styles.trustStars}>★★★★★</div>
-                    <span>Trusted by 80+ growing insurance agencies</span>
+                    <span>Trusted by 80+ growing landscaping companies</span>
                   </div>
                 </motion.div>
 

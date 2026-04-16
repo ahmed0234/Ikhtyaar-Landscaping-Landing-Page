@@ -257,7 +257,7 @@ export default function FinalCTASection() {
         >
           <motion.h2 className={styles.pitchHeadline}>
             <SplitText>
-              Look, People Are Already Searching for Insurance in Your Area
+              Look, People Are Already Searching for Landscaping Services in Your Area
             </SplitText>
           </motion.h2>
           <motion.p
